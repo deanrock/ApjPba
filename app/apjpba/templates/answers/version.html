@@ -1,0 +1,23 @@
+<div style="width:600px;height:500px">
+<b>{{question.question}}</b><br /><br />
+		Spremenil: <b>{{content.user.username}}</b> dne {{content.datetime}}
+		<br /><br />
+		<div style="text-align:left">
+		{{content.content|safe}}
+
+		
+		
+		{% if before_info %}
+			<div style="float:left"><a class="ajax" href="/answers/version/{{before_info.id}}">&lt; Prejšnja sprememba</a></div>
+		{% endif %}
+
+		{% if after_info %}
+			<div style="float:right"><a class="ajax" href="/answers/version/{{after_info.id}}">Naslednja sprememba &gt;</a></div>
+		{% endif %}
+		<div class="clear"></div>
+		
+<script>$(document).ready(function(){
+			$(".ajax").colorbox();
+});</script>
+</div>
+</div>

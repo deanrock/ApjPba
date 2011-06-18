@@ -1,0 +1,32 @@
+{% extends "guests_base.html" %}
+
+{% block content %}
+<h1>&nbsp;</h1>
+<p style="color:red">{{ error }}</p>
+
+<form action="/login" method="post">
+	{% csrf_token %}
+	{% if url != '' %}
+	<input type="hidden" name="url" value="{{url}}" />
+	{% endif %}
+	<table>
+	<tr>
+		<td><label for="username">Ime in priimek ali email naslov:</label></td>
+		<td><input type="text" name="username" id="username" /></td>
+	</tr>
+	<tr>
+		<td><label for="password">Geslo:</label></td>
+		<td><input type="password" name="password" id="password" /></td>
+	</tr>
+	</table>
+	
+	<p class="submit">
+		<input type="submit" style="width: 80px" value="Prijava" />
+	</p>
+</form>
+
+<p class="links">
+	Si pozabil geslo? <a href="/reset-password">Izgubljeno geslo</a><br />
+	Še nisi registriran? <a href="/register">Registracija</a>
+</p>
+{% endblock %}

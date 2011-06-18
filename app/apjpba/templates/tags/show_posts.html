@@ -1,0 +1,17 @@
+<div class="post_header"></div>
+{% load mytemplatetags %}
+{% for post in posts %}
+<div class="post">
+	<a name="post{{post.id}}"></a>
+	<div class="icon"><img src="/images/avatar.jpg" width="80" /></div>
+	<div class="content">
+		<div class="info">
+			<b><a href="/user/{{post.user.id}}">{{post.user.username}}</a></b>
+			<span class="pub_date">{{ post.pub_date|naturalTimeDifference }}</span>
+		</div>
+		
+		<div class="p">{{post.post|bbcode}}</div>
+	</div>
+	<div class="clear"></div>
+</div>
+{% endfor %}

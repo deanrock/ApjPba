@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8 />
+  <title>Apj Pba</title>
+  <style>a {color:#0000FF;}
+  body { font-family:Verdana; font-size:12px;text-align:center}
+  #page {margin: 0px auto;width: 410px;padding-top:50px}
+  img {text-align:center;}
+  h1{padding-bottom:10px;font-size:15px}
+  input {width:200px}
+  table {text-align:center;border:0px}
+  td {text-align:left}
+  .links {padding-top:30px}
+  .submit {padding-top:20px}
+  </style>
+</head>
+<body>
+<div id="page">
+	<img src="/images/top.png" />
+	<div id="content">
+	{% block content %}{% endblock %}
+	</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src=\'" + gaJsHost + "google-analytics.com/ga.js\' type=\'text/javascript\'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-15976005-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

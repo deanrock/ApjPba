@@ -1,0 +1,58 @@
+{% extends "discussions_base.html" %}
+{% load mytemplatetags %}
+{% block content %}
+<h2>Tema: {{topic.name}}</h2>
+
+<div class="post_header"></div>
+{% load mytemplatetags %}
+{% for post in posts %}
+{% if post.pub_date > last_visit %}
+<a name="new"></a>
+<div class="post post_n">
+{% else %}
+<div class="post">
+{% endif %}
+	<a name="post{{post.id}}"></a>
+	<div class="icon"><img src="/images/avatar.jpg" width="80" /></div>
+	<div class="content">
+		<div class="info">
+			<b><a href="/user/{{post.user.id}}">{{post.user.username}}</a></b>
+			<span class="pub_date">{{ post.pub_date|naturalTimeDifference }}</span>
+		</div>
+		
+		<div class="p">{{post.post|bbcode}}</div>
+	</div>
+	<div class="clear"></div>
+</div>
+{% endfor %}
+
+<h2>Dodaj sporočilo</h2>
+<form action="/discussions/new-post" method="post">
+{% csrf_token %}
+<input type="hidden" name="topic" value="{{topic.id}}" />
+<div class="btn bold" title="bold"></div><div class="btn italic"></div><div class="btn underline"></div><div class="btn link"></div><div class="btn quote"></div><div class="btn code"></div><div class="btn image"></div><div class="back" style="display:none"></div><div class="forward" style="display:none"></div>
+<div style="clear:both;display:block"></div>
+<div><textarea name="bbcode" rows="10" cols="80"></textarea></div><br />
+<input type="submit" value="Dodaj" />
+</form>
+<script>
+	/* Editor */
+$(document).ready(function(){
+				$('textarea[name=bbcode]').bbcodeeditor(
+				{
+					bold:$('.bold'),italic:$('.italic'),underline:$('.underline'),link:$('.link'),quote:$('.quote'),code:$('.code'),image:$('.image'),
+					usize:$('.usize'),dsize:$('.dsize'),
+					back:$('.back'),forward:$('.forward'),back_disable:'btn back_disable',forward_disable:'btn forward_disable'
+					/*,exit_warning:true,preview:$('.preview')*/
+				});
+			});
+</script>
+{% endblock %}
+
+{% block right %}
+	<div class="box">
+		<p align="center">
+			<a href="/discussions/new-topic">Nova tema</a>
+		</p>
+	</div>
+{% endblock %}

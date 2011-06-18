@@ -1,0 +1,41 @@
+{% extends "guests_base.html" %}
+
+{% block content %}
+<br /><br /><br />
+<p style="color:red">{{ error }}</p>
+{{cookie}}
+<p align="center"><img style="text-align:center" src="/images/moodle-logo.gif" /><br /><br /><br /><br />
+	Pri prijavi uporabi uporabniško ime in geslo, ki ju imaš za dostop do šolskega Moodle sistema.</p>
+<form action="/login" method="post" onsubmit="xz()">
+	{% csrf_token %}
+	<table>
+	<tr>
+		<td><label for="username">Uporabniško ime:</label></td>
+		<td><input type="text" name="username" id="username" /></td>
+	</tr>
+	<tr>
+		<td><label for="password">Geslo:</label></td>
+		<td><input type="password" name="password" id="password" /></td>
+	</tr>
+	</table>
+	<div style="text-align: center">
+	<p class="submit" id="loginloader">
+		<input type="submit" value="Prijava" style="width:80px" />
+	</p>
+	</div>
+</form>
+<script>
+//preload image
+img = new Image();
+img.src = '/images/ajax-loader.gif';
+
+function xz() {
+	document.getElementById('loginloader').innerHTML='<img src="/images/ajax-loader.gif" style="text-align: center;" />';
+}
+
+</script>
+
+<p class="links">
+	
+</p>
+{% endblock %}

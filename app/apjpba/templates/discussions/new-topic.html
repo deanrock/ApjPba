@@ -1,0 +1,25 @@
+{% extends "discussions_base.html" %}
+
+{% block content %}
+<h2>Dodaj temo</h2>
+<form action="/discussions/new-topic" method="post">
+{% csrf_token %}
+Naslov: <input type="text" name="name" size="100" /><br />
+<div class="btn bold" title="bold"></div><div class="btn italic"></div><div class="btn underline"></div><div class="btn link"></div><div class="btn quote"></div><div class="btn code"></div><div class="btn image"></div><div class="back" style="display:none"></div><div class="forward" style="display:none"></div>
+<div style="clear:both;display:block"></div>
+<div><textarea name="bbcode" rows="10" cols="80"></textarea></div><br />
+<input type="submit" value="Dodaj" />
+</form>
+<script>
+	/* Editor */
+$(document).ready(function(){
+				$('textarea[name=bbcode]').bbcodeeditor(
+				{
+					bold:$('.bold'),italic:$('.italic'),underline:$('.underline'),link:$('.link'),quote:$('.quote'),code:$('.code'),image:$('.image'),
+					usize:$('.usize'),dsize:$('.dsize'),
+					back:$('.back'),forward:$('.forward'),back_disable:'btn back_disable',forward_disable:'btn forward_disable'
+					/*,exit_warning:true,preview:$('.preview')*/
+				});
+			});
+</script>
+{% endblock %}

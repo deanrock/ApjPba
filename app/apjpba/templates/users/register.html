@@ -1,0 +1,45 @@
+{% extends "guests_base.html" %}
+
+{% block content %}
+<h1>Registracija</h1>
+{% if errors %}
+<div style="color:red">
+{% for e in errors %}
+{{ e }}<br />
+{% endfor %}
+</div>
+{% endif %}
+<form action="/register" method="post">
+	{% csrf_token %}
+	<table>
+	<tr>
+		<td>Ime in priimek:</td>
+		<td><input type="text" value="{{username}}" name="username" /></td>
+	</tr>
+	<tr>
+		<td>Razred (npr. K2a):</td>
+		<td><input type="text" value="{{sw}}" name="sw" /></td>
+	</tr>
+	<tr>
+		<td>E-mail naslov:</td>
+		<td><input type="text" value="{{email}}" name="email" /></td>
+	</tr>
+	<tr>
+		<td>Geslo:</td>
+		<td><input type="password" name="password" /></td>
+	</tr>
+	<tr>
+		<td>Geslo (ponovno):</td>
+		<td><input type="password" name="password2" /></td>
+	</tr>
+	</table>
+	
+	<p class="submit">
+		<input type="submit" style="width: 80px" value="Registracija" />
+	</p>
+</form>
+
+<p class="links">
+	Si že registriran? <a href="/login">Prijava</a>
+</p>
+{% endblock %}

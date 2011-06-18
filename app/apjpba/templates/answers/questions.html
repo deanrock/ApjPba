@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load mytemplatetags %}
+{% block contentright %}
+
+<div id="categories">
+	{% for c in questions %}
+		<h3 class="c_h3" id="category_{{c.i|stringformat:"s"}}"><a href="#" onclick="show_category('{{c.i|stringformat:"s"}}')">{{c.i}}. {{c.category.name}}</a></h3>
+		<div class="c_div" id="category_content_{{c.i|stringformat:"s"}}" style="display:none">
+			<div class="questions">
+			{% for q in c.questions %}
+<a name="show_{{c.i|stringformat:"s"}}_{{q.j|stringformat:"s"}}_{{q.id|stringformat:"s"}}"></a>
+					<h3><a href="#show_{{c.i|stringformat:"s"}}_{{q.j|stringformat:"s"}}_{{q.id|stringformat:"s"}}" 
+						onclick="load_question('{{q.id|stringformat:"s"}}','question_{{c.i|stringformat:"s"}}_{{q.j|stringformat:"s"}}')">
+						{{q.j|stringformat:"s"}}. {{q.question|stringformat:"s"}}</a></h3>
+<div class="q_div" id="question_{{c.i|stringformat:"s"}}_{{q.j|stringformat:"s"}}" style="display:none"></div>
+			{% endfor %}
+</div>
+		</div>
+		{% endfor %}
+</div>
+
+<style>
+.questions h3, .questions div {
+	margin-left: 30px;
+}
+
+
+h4 {
+	color: #77BED2;
+	font-size: 15px;
+	border-bottom: 1px #77BED2 solid;
+	
+}
+
+a{color: #2B3E42;}
+
+h3 {
+padding:0px;margin:0px;
+		margin-bottom: 10px;
+}
+
+h3 a {
+	padding:0px;margin:0px;
+	font-weight: normal;
+	color: #000;
+	background: #D3EAF0;
+	text-decoration:none;
+	padding-left: 10px;
+		border: 1px #77BED2 solid;
+		padding-bottom: 10px;
+		padding-top: 10px;
+	
+	display:block;
+
+}
+
+
+
+.edit {
+	float:right;
+}
+
+.q_div {
+	border-left: 1px #77BED2 solid;
+	padding-left: 10px;
+	
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.q_div .content {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+</style>
+
+{%endblock %}

@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block contentright %}
+<script type="text/javascript" src="https://connect.facebook.net/en_US/all.js"></script>
+<p align="center"><br /><br />
+
+Za ogled strani in urejanje odgovorov se moraš prijaviti.
+<br /><br /><br /><br />
+<div style="width:450px;float:left;">
+<p align="center"><br /><br />Prijavi se s Facebookom<br /><br /><br />
+<fb:login-button perms="email">Login with Facebook</fb:login-button><br />
+</p>
+</div>
+<div style="width:450px;float:right;padding-left:30px;border-left: 1px #666666 dashed;">
+	<p align="center"><img style="text-align:center" src="/images/moodle-logo.gif" /><br /><br /><br /><br />
+	Pri prijavi uporabi uporabniško ime in geslo, ki ju imaš za dostop do šolskega Moodle sistema.
+	<br /><br /></p>
+	
+	<div id="content_login">
+
+	
+	<p style="color:red">{{ error }}</p>
+		
+	<form action="" method="post" onsubmit="xz()">
+		{% csrf_token %}
+		<table border="0" align="center">
+			<tr>
+				<td>Uporabniško ime:</td>
+				<td><input type="text" id="login_username" name="username" /></td>
+			</tr>
+			<tr>
+				<td>Geslo:</td>
+				<td><input type="password" id="login_password" name="password" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><div style="text-align: center">
+	<p class="submit" id="loginloader">
+		<input type="submit" value="Prijava" style="width:80px" />
+	</p>
+	</div></td>
+			</tr>
+		</table>
+	</form>
+	</div>
+</div>
+<div class="clear"></div>
+</p>
+<script>
+//preload image
+img = new Image();
+img.src = '/images/ajax-loader.gif';
+
+function xz() {
+	document.getElementById('loginloader').innerHTML='<img src="/images/ajax-loader.gif" style="text-align: center;" />';
+}
+
+
+function login_callback(response) {
+	if (response.status == 'connected') {
+		//check if its logged in
+		window.location = '/fblogin';
+	}
+}
+
+
+$(document).ready(function(){
+var curLoc = window.location;	
+FB.init({
+		appId: '158873974180619',
+		cookie: true,
+		status: true,
+		xfbml: true,
+		channelUrl  :  curLoc.protocol + "//" + curLoc.hostname + ":" + curLoc.port + "/channel.html"
+	});
+	
+	FB.getLoginStatus(login_callback);
+	
+	FB.Canvas.setAutoResize();
+	
+	FB.Event.subscribe('auth.login', function(response) {
+    //check if its logged in
+	window.location = '/fblogin';
+});
+
+
+
+FB.Event.subscribe('auth.statusChange', login_callback);
+});
+
+
+$(document).ready(function(){
+});
+
+</script>
+{% endblock %}

@@ -1,0 +1,470 @@
+body, #page, .clear, h1 {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+}
+
+body {
+	font-family: Arial, Verdana;
+	font-size: 12px;
+	background: url('/images/header.png') repeat-x #FFFFFF;
+	text-align: center;
+}
+
+#content {
+	width: 940px;
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#title ul {
+	list-style: none;
+	float: right;
+	padding-top: 15px;
+}
+
+#footer ul {
+	list-style: none;
+	float: right;
+	padding-top: 8px;
+}
+
+#title li {
+	list-style: none;
+	width: 150px;
+	float: left;
+	color: #e1e1e1;
+	font-style: italic;
+}
+
+#footer li {
+	list-style: none;
+	width: 200px;
+	float: left;
+	color: #9d9d9d;
+	font-style: italic;
+}
+
+#footer li a {
+	text-decoration: none;
+	font-size: 15px;
+	font-style: normal;
+	color: #5e5e5e;
+}
+
+#title li a {
+	text-decoration: none;
+	font-size: 20px;
+	font-style: normal;
+	color: #FFFFFF;
+}
+
+#footer div {
+	float: left;
+	font-size: 15px;
+	line-height: 30px;
+	margin-left: 20px;
+}
+
+#title h1 {
+	float: left;
+	line-height: 65px;
+	font-size: 30px;
+}
+
+#title h1 a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+li a:hover {
+	text-decoration: underline;
+}
+
+#title {
+	height: 40px;
+	margin-bottom: 60px;
+	width: 940px;
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#right {
+	width: 250px;
+	float: right;
+}
+
+#left {
+	width: 650px;
+	float: left;
+}
+
+.box {
+	background: url('/images/menu.png') repeat-x #ededed;
+	padding: 10px;
+	border: 1px #e1e1e1 solid;
+	margin-bottom: 10px;
+}
+
+.box h1 {
+	font-size: 15px;
+	margin-bottom: 5px;
+	border-bottom: 1px #f0f0f0 solid;
+}
+
+h3 {
+	padding-top: 10px;
+}
+
+#footer {
+	width: 940px;
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+	background: url('/images/footer.png') no-repeat;
+	height: 50px;
+	margin-top: 20px;
+}
+
+a {
+	color: #2277bb;
+}
+
+.item_header {
+	border-bottom: 1px rgb(181,181,181) dotted;
+}
+
+.item_b {
+	border-bottom: 1px rgb(181,181,181) dotted;
+}
+
+.item {
+	width: 650px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.even {
+	background: rgb(247,248,243);
+}
+
+.subject {
+	float: left;
+	width: 100px;
+	text-align: center;
+	font-size: 15px;
+	padding-top: 25px;
+}
+
+.desc {
+	float: left;
+	width: 400px;
+}
+
+.desc_snov {
+	background: url('/images/snov.png') no-repeat 300px center;
+}
+
+#show_left {
+	width: 200px;
+	float: left;
+}
+
+#show_right {
+	float: left;
+}
+
+.thumbUp{
+	background: url(/images/thumbs.gif) no-repeat -20px 0px;
+	width:18px;
+	height:18px;
+	float:left;
+	cursor:pointer;
+	overflow:hidden;
+}
+
+.thumbUp:hover, .thumbUpVoted{
+	background: url(/images/thumbs.gif) no-repeat -20px -19px;
+	width:18px;
+	height:18px;
+	float:left;
+	cursor:pointer;
+	text-decoration:none;
+	overflow:hidden;
+}
+
+.thumbDown{
+	background: url(/images/thumbs.gif) no-repeat 0px 0px;
+	width:18px;
+	height:18px;
+	float:left;
+	cursor:pointer;
+	overflow:hidden;
+}
+
+.thumbDown:hover, .thumbDownVoted{
+	background: url(/images/thumbs.gif) no-repeat 0px -19px;
+	width:18px;
+	height:18px;
+	float:left;
+	cursor:pointer;	
+	text-decoration:none;
+}
+
+.thumbs .thumbUp {
+	float: left;
+	width: 18px;
+}
+
+.thumbs .thumbsDown {
+	float: right;
+	width: 18px;
+}
+
+.thumbs div {
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.thumbs {
+	width: 80px;
+}
+
+.thumbscomments {
+	float: right;
+	padding-right: 10px;
+}
+
+.clear {
+	clear: both;
+	display: block;
+}
+
+/* Discussions */
+#topics {
+	border: 0px;
+	width: 100%;
+}
+
+#topics .even td {
+	background-color: rgb(247,248,243);
+}
+
+#topics .read {
+	background: url('/images/read.gif') no-repeat center center;
+}
+
+#topics .unread {
+	background: url('/images/unread.gif') no-repeat center center;
+}
+
+#topics td, #topics th {
+	height: 40px;
+	border-bottom: 1px rgb(181,181,181) dotted;
+}
+
+#topics .modified {
+	color: rgb(119,119,119);
+	font-size: 11px;
+	width: 150px;
+}
+
+#topics .posts {
+	width: 80px;
+	text-align: center;
+}
+
+#topics span {
+	color: rgb(119,119,119);
+}
+
+#topics .title span a {
+	font-size: 12px;
+}
+
+#topics .title a {
+	font-size: 15px;
+	margin-bottom: 5px;
+}
+
+#topics .new_m {
+	width: 40px;
+}
+
+.post .pub_date {
+	color: rgb(119,119,119);
+}
+
+.post .icon {
+	width: 100px;
+	float: left;
+}
+
+.post .content {
+	width: 500px;
+	float: left;
+}
+
+.post {
+	border-bottom: 1px rgb(181,181,181) dotted;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.post_header {
+	border-top: 1px rgb(181,181,181) dotted;
+}
+
+.post_n {
+	border-right: 2px red solid;
+}
+
+.post .info {
+	margin-bottom: 10px;
+}
+
+/* Editor */
+textarea {
+	float:left;
+	clear:left;
+	margin-top:5px;
+	border:solid 1px #CCC;
+	padding:5px;
+}
+
+.preview {
+	float:left;
+	clear:left;
+}
+
+.btn {
+	background: transparent url('/images/buttons.gif') no-repeat scroll 0 0;
+	width:20px;
+	height:20px;
+	margin-right:5px;
+	display:inline-block;
+	float:left;
+}
+
+.bold {
+	background-position:0 0;
+}
+
+.bold:hover {
+	background-position:0 -25px;
+}
+
+.italic {
+	background-position:-25px 0;
+}
+
+.italic:hover {
+	background-position:-25px -25px;
+}
+
+.underline {
+	background-position:-50px 0;
+}
+
+.underline:hover {
+	background-position:-50px -25px;
+}
+
+.link {
+	background-position:-75px 0;
+}
+
+.link:hover {
+	background-position:-75px -25px;
+}
+
+.quote {
+	background-position:-100px 0;
+}
+
+.quote:hover {
+	background-position:-100px -25px;
+}
+
+.code {
+	background-position:-125px 0;
+}
+
+.code:hover {
+	background-position:-125px -25px;
+}
+
+.image {
+	background-position:-150px 0;
+}
+
+.image:hover {
+	background-position:-150px -25px;
+}
+
+.nlist {
+	background-position:-175px 0;
+}
+
+.nlist:hover {
+	background-position:-175px -25px;
+}
+
+.blist {
+	background-position:-200px 0;
+}
+
+.blist:hover {
+	background-position:-200px -25px;
+}
+
+.litem {
+	background-position:-225px 0;
+}
+
+.litem:hover {
+	background-position:-225px -25px;
+}
+
+.back {
+	background-position:-250px 0;
+}
+
+.back:hover {
+	background-position:-250px -25px;
+}
+
+.back_disable {
+	background-position:-250px -50px;
+}
+
+.forward {
+	background-position:-275px 0;
+}
+
+.forward:hover {
+	background-position:-275px -25px;
+}
+
+.forward_disable {
+	background-position:-275px -50px;
+}
+
+.usize {
+	background-position:-300px 0;
+}
+
+.usize:hover {
+	background-position:-300px -25px;
+}
+
+.dsize {
+	background-position:-325px 0;
+}
+
+.dsize:hover {
+	background-position:-325px -25px;
+}

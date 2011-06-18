@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load mytemplatetags %}
+{% block content %}
+<div class="item">
+	<div class="subject">{{item.subject.name}}</div>
+	<div class="desc">
+		<b>Opis:</b>{{item.description}}<br />
+		<b>Datum:</b>{{item.pub_date}}<br />
+		<b>Naložil:</b> <a href="/user/{{item.id}}">{{item.user.username}}</a><br />
+		<b>Velikost:</b>{{item.size}}<br />
+			<a href="/download/{{item.id}}">Prenesi datoteko</a>
+		
+
+	</div>
+	<div class="thumbscomments">
+    	<div class="thumbs">
+			<a href="/vote/{{item.id}}/up" class="thumbUp"></a>
+			<div>{{item.rating}}</div>
+			<a href="/vote/{{item.id}}/down" class="thumbDown"></a>
+		</div>
+		<div class="clear"></div>
+      
+      	<br />
+		<a href="/item/{{item.id}}">Komentarji ({{item.comments.count}})</a>
+  </div>
+  <div class="clear"></div>
+</div>
+
+
+
+
+<!-- comments -->
+{% if item.comments.count > 0 %}
+<h2>Komentarji</h2>
+
+<div class="post_header"></div>
+{% for post in comments %}
+<div class="post">
+	<a name="post{{post.id}}"></a>
+	<div class="icon"><img src="/images/avatar.jpg" width="80" /></div>
+	<div class="content">
+		<div class="info">
+			<b><a href="/user/{{post.author.id}}">{{post.author.username}}</a></b>
+			<span class="pub_date">{{ post.pub_date|naturalTimeDifference }}</span>
+		</div>
+		
+		<div class="p">{{post.comment|bbcode}}</div>
+	</div>
+	<div class="clear"></div>
+</div>
+{% endfor %}
+{% endif %}
+
+<!-- add comment -->
+<h2>Dodaj komentar</h2>
+<form action="/comment" method="post">
+{% csrf_token %}
+<input type="hidden" name="item" value="{{item.id}}" />
+<div class="btn bold" title="bold"></div><div class="btn italic"></div><div class="btn underline"></div><div class="btn link"></div><div class="btn quote"></div><div class="btn code"></div><div class="btn image"></div><div class="back" style="display:none"></div><div class="forward" style="display:none"></div>
+<div style="clear:both;display:block"></div>
+<div><textarea name="bbcode" rows="10" cols="80"></textarea></div><br />
+<input type="submit" value="Dodaj" />
+</form>
+<script>
+	/* Editor */
+$(document).ready(function(){
+				$('textarea[name=bbcode]').bbcodeeditor(
+				{
+					bold:$('.bold'),italic:$('.italic'),underline:$('.underline'),link:$('.link'),quote:$('.quote'),code:$('.code'),image:$('.image'),
+					usize:$('.usize'),dsize:$('.dsize'),
+					back:$('.back'),forward:$('.forward'),back_disable:'btn back_disable',forward_disable:'btn forward_disable'
+					/*,exit_warning:true,preview:$('.preview')*/
+				});
+			});
+</script>
+{% endblock %}

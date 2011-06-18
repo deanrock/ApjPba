@@ -1,0 +1,29 @@
+<div class="item_header"></div>
+{% for item in items %}
+<div class="item item_b {% cycle 'odd' 'even' %}">
+	<div class="subject">{{item.subject.name}}</div>
+	<div class="desc{% if item.type = 'snov' %} desc_snov{% endif %}">
+		<b>Opis:</b> {{item.description}}<br />
+		<b>Datum:</b> {{item.pub_date}}<br />
+		<b>Naložil:</b> <a href="/user/{{item.user.id}}">{{item.user.username}}</a><br />
+		<b>Velikost:</b> {{item.size}}<br />
+		<a href="/download/{{item.id}}">Prenesi datoteko</a>
+	</div>
+	<div class="thumbscomments">
+	{% if not item.is_private %}
+    	<div class="thumbs">
+			<a href="/vote/{{item.id}}/up" class="thumbUp"></a>
+			<div>{{item.rating}}</div>
+			<a href="/vote/{{item.id}}/down" class="thumbDown"></a>
+		</div>
+		<div class="clear"></div>
+      
+      	<br />
+		<a href="/item/{{item.id}}">Komentarji ({{item.comments.count}})</a>
+	{% else %}
+		<a href="/delete/{{item.id}}">Izbriši datoteko</a>
+	{% endif %}
+  </div>
+  <div class="clear"></div>
+</div>
+{% endfor %}

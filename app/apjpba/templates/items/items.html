@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load mytemplatetags %}
+{% block content %}
+{% if type == '' %}
+<h2>Javne datoteke</h2>
+{% else %}
+<h2>Zasebne datoteke</h2>
+{% endif %}
+
+{% show_items items %}
+{% endblock %}

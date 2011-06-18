@@ -1,0 +1,38 @@
+{% if not latest_code and not latest_answer %}
+Vprašanje še nima odgovora. <a href='/answers/edit/{{question.id}}'>Dodaj odgovor</a>
+{% else %}
+	<div class="edit">[ <a href="/answers/edit/{{question.id}}">Uredi</a> ]</div>
+	<div class="clear"></div>
+	<div class="content">
+		{% if latest_answer.content %}
+		
+			{{latest_answer.content|safe}}
+		{% endif %}
+		
+		{% if latest_code.content %}
+		<br /><br />
+				<b>Koda:</b><br />
+		<pre class="prettyprint" style="white-space: pre-wrap">{{latest_code.content|safe}}</pre>
+		<script type="text/javascript">
+		prettyPrint();
+	</script>
+		{% endif %}
+	
+	
+	</div>
+	
+	<!-- show pictures -->
+	{% if files_pictures %}
+		<b>Slike:</b><br />
+		{% for picture in files_pictures %}
+		<img src="http://www.apj-pba.com/files/{{picture.path}}" /><br />
+		{% endfor %}
+	{% endif %}
+	
+	{% if other_files %}
+		<b>Datoteke:</b><br />
+		{% for file in other_files %}
+		<a href="http://www.apj-pba.com/files/{{file.path}}">{{file.name}}</a><br />
+		{% endfor %}
+	{% endif %}
+{% endif %}
